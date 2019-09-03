@@ -19,32 +19,28 @@
 ```js
 // 1.初始一个model实例，传入数据结构属性定义
 let userModel = new Model({
-  id: {
-    type: Number,
-    property: "uuid",
-    value: 0
-  },
   name: {
     type: String,
-    property: "buyer.shopinfo.nickname",
-    value: ""
-  },
-  items: {
-    type: String,
-    property: "items"
-  },
-  age: {
-    type: Number,
-    property: "age"
-  },
-  lastLoginTime: {
-    type: Date,
-    property: "lastLoginTime"
+    property: "buyer.shopinfo.nickname"
   },
   price: {
     type: Number,
-    unit: "B",
-    property: "price"
+    unit: Model.Q
+  },
+  shopInfo: {
+    familiarItems: [
+      {
+        itemId: String,
+        itemName: String,
+        itemMainPic: String,
+        itemPrice: {
+          type: Number,
+          unit: Model.Q
+        },
+        itemOriginalPrice: Number,
+        recommendReason: String
+      }
+    ]
   }
 });
 
@@ -57,21 +53,89 @@ let userState = userModel.parse({
     }
   },
   price: 1000,
-  lastLoginTime: "1563897600000"
+  lastLoginTime: "1563897600000",
+  shopInfo: {
+    familiarItems: [
+      {
+        itemId: 883487093,
+        itemName: "精致的星空耳环",
+        itemMainPic: "https://si.geilicdn.com/vshop1023602513-1477718242.jpg?w=984&h=984",
+        itemPrice: 17900,
+        itemOriginalPrice: 22500,
+        recommendReason: "48%的回头客都在买"
+      }
+    ]
+  }
 });
-// userState--> {"id":123,"name":"张三","items":"","age":0,"lastLoginTime":"2019-07-24","price":10}
+// userState
+{
+    "name": "张三",
+    "uuid": 123,
+    "buyer": {
+        "shopinfo": {
+            "nickname": "张三"
+        }
+    },
+    "price": 1,
+    "lastLoginTime": "1563897600000",
+    "shopInfo": {
+        "familiarItems": [
+            {
+                "itemId": "883487093",
+                "itemName": "精致的星空耳环",
+                "itemMainPic": "https://si.geilicdn.com/vshop1023602513-1477718242.jpg?w=984&h=984",
+                "itemPrice": 17.9,
+                "itemOriginalPrice": 22500,
+                "recommendReason": "48%的回头客都在买"
+            }
+        ]
+    }
+}
 
 // --------或者----------
 
 // 3.实例调用traverse()方法反向映射数据
-let userParams = userModel.traverse({
-  id: 234,
-  name: "李四",
-  age: null,
-  lastLoginTime: "2019-07-24",
-  price: 24
+
+let origin = userModel.dispose({
+  "name": "张三",
+  "uuid": 123,
+  "buyer": {
+    "shopinfo": {
+      "nickname": "张三"
+    }
+  },
+  "price": 1,
+  "lastLoginTime": "1563897600000",
+  "shopInfo": {
+    "familiarItems": [
+      {
+        "itemId": "883487093",
+        "itemName": "精致的星空耳环",
+        "itemMainPic": "https://si.geilicdn.com/vshop1023602513-1477718242.jpg?w=984&h=984",
+        "itemPrice": 17.9,
+        "itemOriginalPrice": 22500,
+        "recommendReason": "48%的回头客都在买"
+      }
+    ]
+  }
 });
-// userParams--> {"uuid":234,"buyer":{"shopinfo":{"nickname":"李四"}},"lastLoginTime":1563897600000,"price":2400}
+//origin
+{
+    "name": "张三",
+    "price": 1000,
+    "shopInfo": {
+        "familiarItems": [
+            {
+                "itemId": "883487093",
+                "itemName": "精致的星空耳环",
+                "itemMainPic": "https://si.geilicdn.com/vshop1023602513-1477718242.jpg?w=984&h=984",
+                "itemPrice": 17900,
+                "itemOriginalPrice": 22500,
+                "recommendReason": "48%的回头客都在买"
+            }
+        ]
+    }
+}
 ```
 
 ## API 说明
