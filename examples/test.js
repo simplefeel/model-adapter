@@ -76,4 +76,4 @@ let origin = userModel.dispose({
 // let userParams = userModel.traverse({id: 234, name: "李四", age: null,
 // lastLoginTime: "2019-07-24", price: 24});
 
-console.log(JSON.stringify(origin)); //{"uuid":234,"buyer":{"shopinfo":{"nickname":"李四"}},"lastLoginTime":1563897600000,"price":2400}
+console.log(JSON.stringify(userState)); //{"uuid":234,"buyer":{"shopinfo":{"nickname":"李四"}},"lastLoginTime":1563897600000,"price":2400}
