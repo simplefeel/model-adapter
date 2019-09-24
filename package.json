@@ -1,6 +1,6 @@
 {
-  "name": "pure-model",
-  "version": "0.0.1",
+  "name": "model-adapter",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/ducker.es5.js",
   "typings": "index.d.ts",
