@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to ducker 👋</h1>
+<h1 align="center">Welcome to model-adapter 👋</h1>
 <p>
   <img src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
   <img src="https://badgen.net/badgesize/normal/https://raw.githubusercontent.com/simplefeel/ducker-model/master/dist/ducker.es5.js">
