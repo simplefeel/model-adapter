@@ -1,5 +1,5 @@
 {
-  "name": "model-adapter",
+  "name": "modeler",
   "version": "1.0.0",
   "description": "",
   "main": "dist/ducker.es5.js",
