@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to model-adapter 👋</h1>
+<h1 align="center">Welcome to stream-model 👋</h1>
 <p>
   <img src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
   <img src="https://badgen.net/badgesize/normal/https://raw.githubusercontent.com/simplefeel/ducker-model/master/dist/ducker.es5.js">
@@ -12,7 +12,7 @@
 
 ## Install
 
-[![NPM](https://nodei.co/npm/ducker-model.png)](https://nodei.co/npm/ducker-model/)
+[![NPM](https://nodei.co/npm/stream-model.png)](https://nodei.co/npm/stream-model/)
 
 ## Usage
 
